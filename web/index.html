@@ -52,6 +52,7 @@ Email      : jgomez@sofware-global.com
 
                                         <ul class="nav navbar-nav navbar-right">
                                             <li class="active"><a href="#home">INICIO</a></li>
+                                            <li><a href="#features">CATALOGO</a></li>
                                             <li><a href="#footer">VENDER</a></li>
                                         </ul>
                                     </div><!-- /.navbar-collapse -->
@@ -84,7 +85,7 @@ Email      : jgomez@sofware-global.com
 
 
                         <div class="scrolldown">
-                            <a href="#special" class="scroll_btn"></a>
+                            <a href="#features" class="scroll_btn"></a>
                         </div>
                     </div>
                 </div>
@@ -97,8 +98,10 @@ Email      : jgomez@sofware-global.com
         <section id="features" class="features sections">
             <div class="container">
                 <div class="row">
+                    <br>
+                    <br>
                     <div class="head_title text-center">
-                        <h2>Menu</h2>
+                        <h2>Catalogo de Productos</h2>
                         <div class="separetor"></div>
                     </div>
                     <div class="features_content text-center">
@@ -215,10 +218,10 @@ Email      : jgomez@sofware-global.com
                                                         </div>
                                                     </div>
                                                     <div class="col-md-5">
-                                                        <h5>Nombre </h5>
+                                                        <h5>Cliente </h5>
                                                         <div class="form-group">
                                                             <input type="text" class="form-control" id="client" name="client" 
-                                                                   placeholder="* Nombre">
+                                                                   placeholder="* Cliente">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
@@ -234,7 +237,7 @@ Email      : jgomez@sofware-global.com
                                                     </div>
                                                     <div class="col-md-1">
                                                         <a id="next" href="#add" class="btn btn-default" onclick="next()"
-                                                           style="margin: 0px;">Vender</a>
+                                                           style="margin: 0px;">Siguiente</a>
                                                         <a id="reset" href="#add" class="btn btn-default" onclick="reset()"
                                                            style="margin: 0px; display: none">Cancelar</a>
                                                     </div>
@@ -250,7 +253,7 @@ Email      : jgomez@sofware-global.com
                                                 <div class="row">  
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control" id="code" name="code" 
+                                                            <input type="number" class="form-control" id="code" name="code" 
                                                                    placeholder="* Codigo">
                                                         </div>
                                                     </div>
@@ -469,7 +472,7 @@ Email      : jgomez@sofware-global.com
                 }
 
                 if (parseInt($("#code").val()) < 1 || parseInt($("#code").val()) > parseInt(producs.length)) {
-                    alert("Ingrese un codigo valido");
+                    alert("Ingrese un codigo entre 1 y "+producs.length.toString());
                     return false;
                 }
                 if ($("#quantity").val() == "") {
@@ -479,7 +482,14 @@ Email      : jgomez@sofware-global.com
                 return true;
             }
             
-            
+            $('#form').on('keyup keypress', function(e) {
+                var keyCode = e.keyCode || e.which;
+                if (keyCode === 13) {
+                   
+                    e.preventDefault();
+                    return false;
+                }
+            });
         </script>
 
 
